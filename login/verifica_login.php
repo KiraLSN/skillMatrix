@@ -25,7 +25,10 @@ if (
 	// Verifica se a consulta foi realizada com sucesso
 	if ( ! $verifica_pdo ) {
 		$erro = $pdo_checa_user->errorInfo();
+        
 		exit( $erro[2] );
+        
+        echo "errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr";
 	}
 	
 	// Busca os dados da linha encontrada
