@@ -4,7 +4,7 @@ include('conexao.php');
 
 include('login/verifica_login.php');
 
-//include('login/redirect.php');
+include('login/redirect.php');
 
 if(isset($_GET['codigo'])){
     $codigo = $_GET['codigo'];
@@ -442,10 +442,10 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
     <title>Skill Matrix - HHP Main</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.ico">
+    <link rel="icon" href="./img/core-img/multicon.png">
     <!-- ICONE DE ATALHOS -->
-    <link rel="apple-touch-icon" href="images/ICONETRAI.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="images/ICONETRAI.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./img/core-img/multicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/core-img/multicon.png" type="image/x-icon" />
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="home.css">
@@ -587,7 +587,7 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
 
                     <!-- Post Content -->
 
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
+                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/workers.jpg);">
 
                         <div id="formulario" class="post-content">
                             <span class="post-date" id="datou"><?php echo date("d ") ."de". date(" M "). "de ". date("Y") ?></span>
@@ -622,7 +622,7 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
             while($fetch = $pdo_verifica->fetch()){
                 $i = $i+1;
                 echo '<tr><td>' . $fetch['posto'] . '</td>';
-                echo '<td><input type="checkbox" id="t[0]['.$i.']" name="t[0]['.$i.']"  '.$check[$i]. ' > '.$i.'</td></tr>';
+                echo '<td><input class="checkbox" type="checkbox" id="t[0]['.$i.']" name="t[0]['.$i.']"  '.$check[$i]. ' value="1" > '.$i.'</td></tr>';
                 
                 
 
@@ -632,7 +632,7 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
                                         ?>
                                     </tbody>
                                 </table>
-                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Adicionar Atividade </button>
+                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Salvar Habilidades </button>
 
                             </form>
                         </div>
