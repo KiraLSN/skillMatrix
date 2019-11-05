@@ -7,5 +7,5 @@ $_SESSION = array();
 session_destroy();
 
 // Redireciona para o login.php
-header("location: http://105.103.29.24:8090/skillMatrix");
+header("location: http://localhost/skillMatrix");
 ?>

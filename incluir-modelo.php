@@ -1,5 +1,15 @@
-<?php 
-session_start();
+<?php
+
+include('conexao.php');
+
+//include('login/verifica_login.php');
+
+//include('login/redirect.php');
+
+
+//$matricula = $_SESSION['matricula'];
+//$funcionario = $_SESSION['nome'];
+
 
 ?>
 
@@ -13,16 +23,16 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Matriz de Skills - HHP Main</title>
+    <title>Skill Matrix - Modelos</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/agv.png">
+    <link rel="icon" href="./img/core-img/multicon.png">
     <!-- ICONE DE ATALHOS -->
-    <link rel="apple-touch-icon" href="img/report-icon-27.jpg" type="image/x-icon" />
-    <link rel="shortcut icon" href="img/report-icon-27.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./img/core-img/multicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/core-img/multicon.png" type="image/x-icon" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
@@ -38,7 +48,7 @@ session_start();
     <!-- ***** Top Search Area Start ***** -->
     <div class="top-search-area">
         <!-- Search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -66,10 +76,13 @@ session_start();
 
                     <!-- Logo -->
                     <a class="nav-brand" href="index.php">
-                        <h2>Matriz de Skills - HHP Main</h2>
+                        <h2>Ajuste de Modelo </h2>
                     </a>
 
                     <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
 
                     <!-- Menu -->
                     <div class="classy-menu">
@@ -81,42 +94,14 @@ session_start();
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <!--<li class="current-item"><a href="./index.php">Home</a></li> -->
 
-
-                                <li><a href="#">Controle de Funcionários</a>
-                                    <ul class="dropdown">
-
-                                        <li><a href="report-diario.php">Busca Por Nome </a></li>
-                                        <li><a href="report-mensal.php">Desligados</a></li>
-                                        <li><a href="report.php">Mudança de Cargo</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Ajustes</a>
-                                    <ul class="dropdown">
-
-                                        <li><a href="report-mensal.php">Incluir Modelos</a></li>
-                                        <li><a href="report-mensal.php">Editar Modelos</a></li>
-                                        <li><a href="report-mensal.php">Adicionar Postos</a></li>
-
-                                    </ul>
-                                </li>
-                                <li><a href="#">Intruções</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./blog.html">Uso do Sistema</a></li>
-
-                                    </ul>
-                                </li>
-                                <!--<li><a href="./contact.html">Contatos</a></li>-->
-                                <li><a style="color: red" href="login/sair.php">Logout</a></li>
+                                <li><a style="color: red" href="login/sair.php">Sair</a></li>
                             </ul>
 
 
 
 
                         </div>
-
-
                         <!-- Nav End -->
 
                     </div>
@@ -134,10 +119,10 @@ session_start();
         <!-- Single Welcome Slide -->
 
         <!-- Background Curve -->
-
         <div class="background-curve">
-            <img class="enfeite" src="./img/core-img/curve-1.png" alt="">
+            <img src="./img/core-img/curve-1.png" alt="" width="300">
         </div>
+
 
 
 
@@ -170,36 +155,48 @@ session_start();
         <div class="container">
 
 
-            <!-- TESTE COM APP DE SCANNER INSTALADO -->
 
 
 
 
 
 
-
+            <?php 
+                                    
+                                    ?>
             <div class="row">
 
                 <!-- Single Blog Post -->
+                <div class="col-12 col-lg-4">
 
-                <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
+                    <!-- Post Content -->
 
-                    <div id="formulario" class="post-content">
-                        <form method="post" action="index2.php">
+                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/workers.jpg);">
 
-                            <h3>
-                                Informe a Matricula
+                        <div id="formulario" class="post-content">
+                            <span class="post-date" id="datou"><?php echo date("d ") ."de". date(" M "). "de ". date("Y") ?></span>
+                            <h3 id="numcar">
+                                <label>Incluir Novo Modelo</label>
                             </h3>
-                            <input type="text" id="login" name="login" placeholder="Insira a Matricula">
 
-                            <div class="col-12">
-                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Entrar</button>
-                            </div>
-                        </form>
+
+                            <form method="post" action="formModelo.php">
+
+                                <div><input type="text" id="nome" name="nome" placeholder="Nome"></div>
+
+                                <div><input type="text" id="cor" name="cor" placeholder="Cor"></div>
+                                <div><input type="text" id="sku" name="sku" placeholder="SKU"></div>
+                                <br>
+
+                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Salvar Modelo </button>
+
+                            </form>
+                        </div>
                     </div>
+
+
+
                 </div>
-
-
             </div>
         </div>
 
@@ -221,7 +218,7 @@ session_start();
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
 
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
 
@@ -255,41 +252,7 @@ session_start();
     <script src="js/main.js"></script>
     <script src="js/check.js"></script>
 
-    <script>
-        document.getElementById("datou").value = new Date().getFullYear();
 
-
-
-
-        function ler() {
-            var qrcode = document.getElementById("qr").value;
-            setTimeout(escrever, 1000);
-        }
-
-        function escrever() {
-            var qrcode = document.getElementById("qr").value;
-            document.getElementById("teste").value = qrcode;
-            document.getElementById("numcar").innerHTML = "<label>Check List Carro " + qrcode + "<label/> ";
-            document.getElementById("qrcode").value = qrcode;
-            document.getElementById("qr").style.display = "none";
-            document.getElementById("img-qr").style.display = "none";
-
-
-            if (qrcode != null) {
-                document.getElementById("formulario").style.display = "block";
-
-
-            } else {
-                document.getElementById("formulario").style.display = "none";
-
-            }
-
-            if (qrcode == null) {
-                document.getElementById("formulario").style.display = "none";
-            }
-        }
-
-    </script>
 
 
 </body>

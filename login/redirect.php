@@ -1,10 +1,7 @@
 <?php
 
 $search = $dados_usuario['login'];
-        echo "<br>";
-        echo "<br>";
-        echo "<br>";
-        echo "<br>";
+  /* TRECHO QUE PEGA DADOS DOS FUNCIONARIOS
         echo $dados_usuario['login'];
 		$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"http://105.103.22.151/main/modules/hhp_ws/control/crt_send_info.php?search=$search");
@@ -34,7 +31,7 @@ $departamento = $dados[0]->departamento;
             $stm->bindValue(2, $matricula);
             $stm->execute();
             
-
+*/
 
 if ( $_SESSION['logado'] != true ) {
 	header('location: ' . dirname( $_SERVER['PHP_SELF'] ) . '/index.php');
