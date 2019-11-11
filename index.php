@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 
 ?>
 
@@ -16,10 +16,10 @@ session_start();
     <title>Matriz de Skills - HHP Main</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/agv.png">
+    <link rel="icon" href="./img/core-img/multicon.png">
     <!-- ICONE DE ATALHOS -->
-    <link rel="apple-touch-icon" href="img/report-icon-27.jpg" type="image/x-icon" />
-    <link rel="shortcut icon" href="img/report-icon-27.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./img/core-img/multicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/core-img/multicon.png" type="image/x-icon" />
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="login.css">
@@ -70,7 +70,9 @@ session_start();
                     </a>
 
                     <!-- Navbar Toggler -->
-
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
                     <!-- Menu -->
                     <div class="classy-menu">
                         <!-- Menu Close Button -->
@@ -95,10 +97,9 @@ session_start();
                                 <li><a href="#">Ajustes</a>
                                     <ul class="dropdown">
 
-                                        <li><a href="report-mensal.php">Incluir Modelos</a></li>
-                                        <li><a href="report-mensal.php">Editar Modelos</a></li>
-                                        <li><a href="report-mensal.php">Adicionar Postos</a></li>
-
+                                        <li><a href="incluir-modelo.php">Incluir Novo Modelo</a></li>
+                                        <li><a href="incluir-postos.php">Incluir Postos</a></li>
+                                        
                                     </ul>
                                 </li>
                                 <li><a href="#">Intruções</a>
@@ -108,7 +109,7 @@ session_start();
                                     </ul>
                                 </li>
                                 <!--<li><a href="./contact.html">Contatos</a></li>-->
-                                <li><a style="color: red" href="login/sair.php">Logout</a></li>
+                                <!--<li><a style="color: red" href="login/sair.php">Logout</a></li>-->
                             </ul>
 
 

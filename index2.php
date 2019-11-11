@@ -13,424 +13,14 @@ if(isset($_GET['codigo'])){
 $matricula = $_SESSION['matricula'];
 $funcionario = $_SESSION['nome'];
 
-global $check;
 
-$check = array();
 
-for($i=0; $i<60; $i++){
-    
-    $check[$i]= "";
-}
-
-global $leva;
-
-$pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".$matricula." ");
-                     $pdo_verifica->execute();
-
-                    while($fetch = $pdo_verifica->fetch()){
-                        
-                        if($fetch['audioled'] == 1){
-                            $check[1]="checked";
-                        }else{
-                            $check[1]="";
-                        }
-                        
-                        if($fetch['audio'] == 1){
-                            $check[2]="checked";
-                        }else{
-                            $check[2]="";
-                        }
-                        
-                        if($fetch['audiorcv'] == 1){
-                            $check[3]="checked";
-                        }else{
-                            $check[3]="";
-                        }
-                        
-                        if($fetch['bglassprensa'] == 1){
-                            $check[4]="checked";
-                        }else{
-                            $check[4]="";
-                        }
-                        
-                        if($fetch['bracketBateria'] == 1){
-                            $check[5]="checked";
-                        }else{
-                            $check[5]="";
-                        }
-                        
-                        if($fetch['coaxialsub'] == 1){
-                            $check[6]="checked";
-                        }else{
-                            $check[6]="";
-                        }
-                        
-                        if($fetch['callTest'] == 1){
-                            $check[7]="checked";
-                        }else{
-                            $check[7]="";
-                        }
-                        
-                        if($fetch['cameraTeste'] == 1){
-                            $check[8]="checked";
-                        }else{
-                            $check[8] = "";
-                            
-                        }
-                        
-                        if($fetch['CNMatching'] == 1){
-                            $check[9]="checked";
-                        }else{
-                            $check[9] = " ";
-                            
-                        }
-                        
-                        if($fetch['fingerPrint'] == 1){
-                            $check[10]="checked";
-                        }else{
-                            $check[10] = " ";
-                            
-                        }
-                        
-                        if($fetch['tapeCameraMega'] == 1){
-                            $check[11]="checked";
-                        }else{
-                            $check[11] = " ";
-                            
-                        }
-                        
-                        if($fetch['tapeIsolante'] == 1){
-                            $check[12]="checked";
-                        }else{
-                            $check[12] = " ";
-                            
-                        }
-                        
-                        if($fetch['forceTouchTest'] == 1){
-                            $check[13]="checked";
-                        }else{
-                            $check[13] = " ";
-                            
-                        }
-                        
-                        if($fetch['frontCAMScrew'] == 1){
-                            $check[14]="checked";
-                        }else{
-                            $check[14] = " ";
-                            
-                        }
-                        
-                        if($fetch['functionTeste'] == 1){
-                            $check[15]="checked";
-                        }else{
-                            $check[15] = " ";
-                            
-                        }
-                        
-                        if($fetch['imei'] == 1){
-                            $check[16]="checked";
-                        }else{
-                            $check[16] = " ";
-                            
-                        }
-                        
-                        if($fetch['lcia'] == 1){
-                            $check[17]="checked";
-                        }else{
-                            $check[17] = " ";
-                            
-                        }
-                        
-                        if($fetch['moduloSensor01'] == 1){
-                            $check[18]="checked";
-                        }else{
-                            $check[18] = " ";
-                            
-                        }
-                        
-                        if($fetch['moduloSensor02'] == 1){
-                            $check[19]="checked";
-                        }else{
-                            $check[19] = " ";
-                            
-                        }
-                        
-                        if($fetch['caboCoaxial'] == 1){
-                            $check[20]="checked";
-                        }else{
-                            $check[20] = " ";
-                            
-                        }
-                        
-                        if($fetch['frontAssy'] == 1){
-                            $check[21]="checked";
-                        }else{
-                            $check[21] = " ";
-                            
-                        }
-                        
-                        if($fetch['rear'] == 1){
-                            $check[22]="checked";
-                        }else{
-                            $check[22] = " ";
-                            
-                        }
-                        
-                        if($fetch['earJack'] == 1){
-                            $check[23]="checked";
-                        }else{
-                            $check[23] = " ";
-                            
-                        }
-                        
-                        if($fetch['montagemMegaCAM'] == 1){
-                            $check[24]="checked";
-                        }else{
-                            $check[24] = " ";
-                            
-                        }
-                        
-                        if($fetch['montagemOcta'] == 1){
-                            $check[25]="checked";
-                        }else{
-                            $check[25] = " ";
-                            
-                        }
-                        
-                        if($fetch['montagemOctaPrensa'] == 1){
-                            $check[26]="checked";
-                        }else{
-                            $check[26] = " ";
-                            
-                        }
-                        
-                        if($fetch['montageRear'] == 1){
-                            $check[27]="checked";
-                        }else{
-                            $check[27] = " ";
-                            
-                        }
-                        
-                        
-                        if($fetch['OTGPDChagerÍris'] == 1){
-                            $check[28]="checked";
-                        }else{
-                            $check[28] = " ";
-                            
-                        }
-                        
-                        if($fetch['packing'] == 1){
-                            $check[29]="checked";
-                        }else{
-                            $check[29] = " ";
-                            
-                        }
-                        
-                        if($fetch['bracketParafusar'] == 1){
-                            $check[30]="checked";
-                        }else{
-                            $check[30] = " ";
-                            
-                        }
-                        
-                        if($fetch['powerOn'] == 1){
-                            $check[31]="checked";
-                        }else{
-                            $check[31] = " ";
-                            
-                        }
-                        
-                        if($fetch['prensa'] == 1){
-                            $check[32]="checked";
-                        }else{
-                            $check[32] = " ";
-                            
-                        }
-                        
-                        if($fetch['prensaAB'] == 1){
-                            $check[33]="checked";
-                        }else{
-                            $check[33] = " ";
-                            
-                        }
-                        
-                        if($fetch['prensaBateria'] == 1){
-                            $check[34]="checked";
-                        }else{
-                            $check[34] = " ";
-                            
-                        }
-                        
-                        if($fetch['prensaBracketBateria'] == 1){
-                            $check[35]="checked";
-                        }else{
-                            $check[35] = " ";
-                            
-                        }
-                        
-                        if($fetch['prensaTapeBateria'] == 1){
-                            $check[36]="checked";
-                        }else{
-                            $check[36] = " ";
-                            
-                        }
-                        
-                        if($fetch['preparacaoBracket'] == 1){
-                            $check[37]="checked";
-                        }else{
-                            $check[37] = " ";
-                            
-                        }
-                        
-                        if($fetch['protectorVinil'] == 1){
-                            $check[38]="checked";
-                        }else{
-                            $check[38] = " ";
-                            
-                        }
-                        
-                        if($fetch['radiation'] == 1){
-                            $check[39]="checked";
-                        }else{
-                            $check[39] = " ";
-                            
-                        }
-                        
-                        if($fetch['RCVFinger'] == 1){
-                            $check[40]="checked";
-                        }else{
-                            $check[40] = " ";
-                            
-                        }
-                        
-                        if($fetch['revisaoScrew'] == 1){
-                            $check[41]="checked";
-                        }else{
-                            $check[41] = " ";
-                            
-                        }
-                        
-                        if($fetch['revisao01'] == 1){
-                            $check[42]="checked";
-                        }else{
-                            $check[42] = " ";
-                            
-                        }
-                        
-                        if($fetch['revisao02'] == 1){
-                            $check[43]="checked";
-                        }else{
-                            $check[43] = " ";
-                            
-                        }
-                        
-                        if($fetch['revisor'] == 1){
-                            $check[44]="checked";
-                        }else{
-                            $check[44] = " ";
-                            
-                        }
-                        
-                        if($fetch['RFCalResultado'] == 1){
-                            $check[45]="checked";
-                        }else{
-                            $check[45] = " ";
-                            
-                        }
-                        
-                        if($fetch['RSTPowerOn'] == 1){
-                            $check[46]="checked";
-                        }else{
-                            $check[46] = " ";
-                            
-                        }
-                        
-                        if($fetch['RSTTVOC'] == 1){
-                            $check[47]="checked";
-                        }else{
-                            $check[47] = " ";
-                            
-                        }
-                        
-                        if($fetch['semiFunctionTest'] == 1){
-                            $check[48]="checked";
-                        }else{
-                            $check[48] = " ";
-                            
-                        }
-                        
-                        if($fetch['SIMTrayTest'] == 1){
-                            $check[49]="checked";
-                        }else{
-                            $check[49] = " ";
-                            
-                        }
-                        
-                        if($fetch['SIMTrayPrensaC'] == 1){
-                            $check[50]="checked";
-                        }else{
-                            $check[50] = " ";
-                            
-                        }
-                        
-                        if($fetch['testeUmidade'] == 1){
-                            $check[51]="checked";
-                        }else{
-                            $check[51] = " ";
-                            
-                        }
-                        
-                        if($fetch['integradoLeakage'] == 1){
-                            $check[52]="checked";
-                        }else{
-                            $check[52] = " ";
-                            
-                        }
-                        
-                        if($fetch['TVOC'] == 1){
-                            $check[53]="checked";
-                        }else{
-                            $check[53] = " ";
-                            
-                        }
-                        
-                        if($fetch['unificationFuctionForceTouch'] == 1){
-                            $check[54]="checked";
-                        }else{
-                            $check[54] = " ";
-                            
-                        }
-                        
-                        if($fetch['WPI'] == 1){
-                            $check[55]="checked";
-                        }else{
-                            $check[55] = " ";
-                            
-                        }
-                        
-                        if($fetch['WPT'] == 1){
-                            $check[56]="checked";
-                        }else{
-                            $check[56] = " ";
-                            
-                        }
-                        
-                        if($fetch['WPT01'] == 1){
-                            $check[57]="checked";
-                        }else{
-                            $check[57] = " ";
-                            
-                        }
-                        
-                        
-                        
-                    }
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
@@ -453,7 +43,7 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
 
 </head>
 
-<body>
+<body onload="selectposto()">
     <!-- Preloader -->
     <div id="preloader">
         <div class="wrapper">
@@ -497,7 +87,8 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        <li><a style="color: red" href="login/sair.php">Sair</a></li>
+                        
                     </div>
 
                     <!-- Menu -->
@@ -589,52 +180,65 @@ $pdo_verifica = $conexao_pdo->prepare("select * from matriz WHERE matricula = ".
 
                     <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/workers.jpg);">
 
+
+
+
                         <div id="formulario" class="post-content">
                             <span class="post-date" id="datou"><?php echo date("d ") ."de". date(" M "). "de ". date("Y") ?></span>
                             <h3 id="numcar">
                                 <label>HABILIDADES</label>
                             </h3>
-
-
-                            <form method="post" action="formCheck.php">
-
-
-                                <div class="col-12 btn">
-
-                                </div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <td>POSTOS</td>
-                                            <td>CHECK</td>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <?php 
-    
-    
-    
-    $pdo_verifica = $conexao_pdo->prepare("select * from postos order by posto ASC ");
+                            <form method="post" >
+                                <select name="tiposol" id="tiposol" class="form-control" oninput="selectposto()">
+                                    <?php 
+     $pdo_verifica = $conexao_pdo->prepare("select * from modelos order by nome ASC ");
                      $pdo_verifica->execute();
                                 $i = 0;
             while($fetch = $pdo_verifica->fetch()){
-                $i = $i+1;
-                echo '<tr><td>' . $fetch['posto'] . '</td>';
-                echo '<td><input class="checkbox" type="checkbox" id="t[0]['.$i.']" name="t[0]['.$i.']"  '.$check[$i]. ' value="1" > '.$i.'</td></tr>';
-                
-                
-
-                
+                            echo "<option>". $fetch['nome']."</option>";
+                            
+                            
             }
-    
-                                        ?>
-                                    </tbody>
-                                </table>
-                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Salvar Habilidades </button>
 
+                                ?>
+                                </select>
+                                
                             </form>
+                            <br>
+                            <div class="listaskill" id="listaskill" >
+
+                            </div>
+
+
+                            <script>
+                                //var myVar;
+
+                                function selectposto() {
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "listaPosto.php",
+                                        data: {modelo: document.getElementById('tiposol').value},
+                                        
+                                        success: function(data) {
+                                            $('#listaskill').html(data);
+                                        }
+
+                                    });
+
+                                }
+
+
+                                //myVar = setInterval(alterar_div, 500);
+                                /*
+                                                                function para() {
+                                                                    clearInterval(myVar);
+                                                                }
+                                                                */
+
+                            </script>
+
+
                         </div>
                     </div>
 

@@ -23,7 +23,7 @@ include('conexao.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Skill Matrix - Modelos</title>
+    <title>Skill Matrix - Postos</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/multicon.png">
@@ -37,7 +37,7 @@ include('conexao.php');
 
 </head>
 
-<body>
+<body onload="selectposto()">
     <!-- Preloader -->
     <div id="preloader">
         <div class="wrapper">
@@ -76,11 +76,11 @@ include('conexao.php');
 
                     <!-- Logo -->
                     <a class="nav-brand" href="index.php">
-                        <h2>Inclusão de Modelo </h2>
+                        <h2>Inclusão de Postos </h2>
                     </a>
 
                     <!-- Navbar Toggler -->
-                    
+
 
                     <!-- Menu -->
                     <div class="classy-menu">
@@ -174,22 +174,77 @@ include('conexao.php');
                         <div id="formulario" class="post-content">
                             <span class="post-date" id="datou"><?php echo date("d ") ."de". date(" M "). "de ". date("Y") ?></span>
                             <h3 id="numcar">
-                                <label>Incluir Novo Modelo</label>
+                                <label>Selecione o Modelo</label>
                             </h3>
 
+                            <select name="tiposol" id="tiposol" class="form-control" oninput="selectposto()">
+                                <?php 
+     $pdo_verifica = $conexao_pdo->prepare("select * from modelos order by nome ASC ");
+                     $pdo_verifica->execute();
+                                $i = 0;
+            while($fetch = $pdo_verifica->fetch()){
+                            echo "<option>". $fetch['nome']."</option>";
+                            
+                            
+            }
 
-                            <form method="post" action="formModelo.php">
+                                ?>
+                            </select>
 
-                                <div><input type="text" id="modelo" name="modelo" placeholder="Novo Modelo" autofocus></div>
+
+                            <br><br>
+                           
+
+ 
+
+                                <div><input type="text" id="posto" name="posto" placeholder="Novo Posto" class="adicionar" autofocus>
+                                    <button id="btnSend" name="btnSend" id="btnSend" type="submit" class=" uza-btn btn-3 mt-15 addbtn" onclick="selectposto()">Add</button>
+                                    
+                                </div>
                                 <br>
 
-                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Salvar Modelo </button>
 
-                            </form>
+
                             
-                            
-                            
+                            <div class="listaskill" id="listaskill">
+
+                            </div>
+
+                            <script>
+                                //var myVar;
+
+                                function selectposto() {
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "listadepostos.php",
+                                        data: {
+                                            modelo: document.getElementById('tiposol').value,
+                                            posto: document.getElementById('posto').value,
+                                            botao: document.getElementsByName('btnSend').value
+                                        },
+
+                                        success: function(data) {
+                                            $('#listaskill').html(data);
+                                        }
+
+                                    });
+document.getElementById('posto').value = null;
+                                    document.getElementById('posto').autofocus;
+                                }
+
+
+                                //myVar = setInterval(alterar_div, 500);
+                                /*
+                                                                function para() {
+                                                                    clearInterval(myVar);
+                                                                }
+                                                                */
+
+                            </script>
+
                         </div>
+
                     </div>
 
 

@@ -1,4 +1,4 @@
-<?php header("refresh: 5; index2.php"); ?>
+<?php header("refresh: 3; index.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +62,7 @@
 
                     <!-- Logo -->
                     <a class="nav-brand" href="index.html">
-                        <h2>AGV CheckList</h2>
+                        <h2>Matriz de Skills - HHP Main</h2>
                     </a>
 
                     <!-- Navbar Toggler -->

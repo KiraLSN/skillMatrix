@@ -1,15 +1,5 @@
-<?php
-
-include('conexao.php');
-
-//include('login/verifica_login.php');
-
-//include('login/redirect.php');
-
-
-//$matricula = $_SESSION['matricula'];
-//$funcionario = $_SESSION['nome'];
-
+<?php 
+session_start();
 
 ?>
 
@@ -23,7 +13,7 @@ include('conexao.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Skill Matrix - Modelos</title>
+    <title>Matriz de Skills - Login</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/multicon.png">
@@ -32,7 +22,7 @@ include('conexao.php');
     <link rel="shortcut icon" href="./img/core-img/multicon.png" type="image/x-icon" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="login.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
@@ -48,7 +38,7 @@ include('conexao.php');
     <!-- ***** Top Search Area Start ***** -->
     <div class="top-search-area">
         <!-- Search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-="true">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -76,12 +66,11 @@ include('conexao.php');
 
                     <!-- Logo -->
                     <a class="nav-brand" href="index.php">
-                        <h2>Inclusão de Modelo </h2>
+                        <h2>Matriz de Skills - Login</h2>
                     </a>
 
                     <!-- Navbar Toggler -->
-                    
-
+                  
                     <!-- Menu -->
                     <div class="classy-menu">
                         <!-- Menu Close Button -->
@@ -90,16 +79,9 @@ include('conexao.php');
                         </div>
 
                         <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul id="nav">
-
-                                <li><a style="color: red" href="login/sair.php">Voltar</a></li>
-                            </ul>
+                        
 
 
-
-
-                        </div>
                         <!-- Nav End -->
 
                     </div>
@@ -117,10 +99,10 @@ include('conexao.php');
         <!-- Single Welcome Slide -->
 
         <!-- Background Curve -->
-        <div class="background-curve">
-            <img src="./img/core-img/curve-1.png" alt="" width="300">
-        </div>
 
+        <div class="background-curve">
+            <img class="enfeite" src="./img/core-img/curve-1.png" alt="">
+        </div>
 
 
 
@@ -153,48 +135,45 @@ include('conexao.php');
         <div class="container">
 
 
+            <!-- TESTE COM APP DE SCANNER INSTALADO -->
 
 
 
 
 
 
-            <?php 
-                                    
-                                    ?>
+
             <div class="row">
 
                 <!-- Single Blog Post -->
-                <div class="col-12 col-lg-4">
 
-                    <!-- Post Content -->
+                <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
 
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/workers.jpg);">
+                    <div id="formulario" class="post-content">
+                        <form method="post" action="login.php">
 
-                        <div id="formulario" class="post-content">
-                            <span class="post-date" id="datou"><?php echo date("d ") ."de". date(" M "). "de ". date("Y") ?></span>
-                            <h3 id="numcar">
-                                <label>Incluir Novo Modelo</label>
+                            <h3 id="indio">
+                                Senha de Acesso
                             </h3>
+                            <input type="password" id="password" name="password" placeholder="Informe Senha" autofocus>
 
-
-                            <form method="post" action="formModelo.php">
-
-                                <div><input type="text" id="modelo" name="modelo" placeholder="Novo Modelo" autofocus></div>
-                                <br>
-
-                                <button id="btnSend" name="btnSend" type="submit" class="btn uza-btn btn-3 mt-15">Salvar Modelo </button>
-
-                            </form>
-                            
-                            
-                            
-                        </div>
+                            <div class="col-12">
+                                <button id="btnSend" name="btnSend" type="submit" onclick="Login()" class="btn uza-btn btn-3 mt-15">Entrar</button>
+                            </div>
+                        </form>
                     </div>
-
-
-
                 </div>
+
+<?php
+                if(isset($_POST['btnSend'])){
+                    $senha = "admin";
+                    $pw = $_POST['password'];
+                    if($senha == $pw){
+                        echo "<script>location.href='index.php'; </script>";
+                    }
+                }
+                
+                ?>
             </div>
         </div>
 
@@ -216,7 +195,7 @@ include('conexao.php');
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
 
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
 
@@ -250,7 +229,7 @@ include('conexao.php');
     <script src="js/main.js"></script>
     <script src="js/check.js"></script>
 
-
+   
 
 
 </body>
